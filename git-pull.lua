@@ -9,7 +9,9 @@ if table.maxn(arg) == 0 then
     print("Usage : git-pull <files>")
 else
     for k,v in pairs(arg) do
-        shell.run("rm", v)
-        shell.run("wget",url .. v)
+        if k != 0 then
+            shell.run("rm", v)
+            shell.run("wget",url .. v)
+        end
     end
 end
